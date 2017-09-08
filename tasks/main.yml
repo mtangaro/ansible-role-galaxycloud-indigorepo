@@ -1,0 +1,8 @@
+---
+# tasks file for ansible-role-galaxycloud-indigorepo
+
+- name: "[EL] Enable indigo repo"
+  get_url:
+    url: "http://repo.indigo-datacloud.eu/repos/{{ indigo_version }}/indigo{{ indigo_version }}.repo"
+    dest: "/etc/yum.repos.d/indigo{{ indigo_version }}.repo"
+  when: ansible_os_family == "RedHat"
