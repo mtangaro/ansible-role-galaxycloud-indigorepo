@@ -1,0 +1,11 @@
+---
+
+- name: "[EL] Enable indigo repo"
+  get_url:
+    url: "http://repo.indigo-datacloud.eu/repos/{{ indigo_version }}/indigo{{ indigo_version }}.repo"
+    dest: "/etc/yum.repos.d/indigo{{ indigo_version }}.repo"
+
+- name: "[EL] add repo key"
+  rpm_key:
+    state: present
+    key: 'http://repo.indigo-datacloud.eu/repository/RPM-GPG-KEY-indigodc'
